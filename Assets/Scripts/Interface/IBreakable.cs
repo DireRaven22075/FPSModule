@@ -1,12 +1,12 @@
 namespace EMSYS.FPS.Interface
 {
     /// <summary>
-    /// 엔티티 (생명체용 인터페이스)
+    /// 파괴가능한 오브젝트
     /// </summary>
-    public interface IEntity
+    public interface IBreakable
     {
         int health { get; set; }
         void Damage(int value);
-        void Die();
+        void Break();
     }
 }
