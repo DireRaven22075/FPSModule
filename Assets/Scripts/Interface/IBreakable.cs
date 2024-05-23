@@ -5,8 +5,6 @@ namespace EMSYS.FPS.Interface
     /// </summary>
     public interface IBreakable
     {
-        int health { get; set; }
-        void Damage(int value);
         void Break();
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using EMSYS.FPS.Interface;
 public class Zombie : MonoBehaviour, IEntity
 {
     float time = 0;

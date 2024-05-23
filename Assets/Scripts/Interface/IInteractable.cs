@@ -5,6 +5,6 @@ namespace EMSYS.FPS.Interface
     /// </summary>
     public interface IInteractable
     {
-        void Interact();
+        void Interact(IPlayer player);
     }
 }
