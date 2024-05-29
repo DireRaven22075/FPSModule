@@ -22,6 +22,7 @@ namespace EMSYS.FPS.Entity
         protected void Jump()
         {
             rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            isGround = false;
         }
         protected void Rotate()
         {
@@ -33,6 +34,13 @@ namespace EMSYS.FPS.Entity
             camera.transform.localEulerAngles = new Vector3(yRotation, 0, 0);
 
             transform.localEulerAngles += new Vector3(0, x * Constants.Physics.sensivity, 0);
+        }
+        private void CheckGround()
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            {
+                isGround = true;
+            }
         }
     }
 }

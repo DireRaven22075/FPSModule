@@ -12,29 +12,23 @@ namespace EMSYS.FPS.Entity
             camera = GetComponentInChildren<Camera>();
             rigid = GetComponent<Rigidbody>();
             controller = GetComponent<CharacterController>();
-            isGround = true;
             Cursor.lockState = CursorLockMode.Locked;
+            
         }
         [SerializeField]
         private GameObject grenade;
         void Update()
         {
             Attack();
-            if (Input.GetKeyDown(KeyCode.E))
+            Rotate();
+            if (isGround && Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate<GameObject>(grenade, camera.transform.position, camera.transform.rotation);
-            }
-            if (isGround)
-            {
-                Rotate();
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Jump();
-                }
+                Jump();
             }
         }
         private void FixedUpdate()
         {
+            CheckGround();
             if (isGround)
             {
                 Move();
