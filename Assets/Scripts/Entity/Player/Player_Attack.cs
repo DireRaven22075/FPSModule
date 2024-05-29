@@ -9,6 +9,12 @@ namespace EMSYS.FPS.Entity
 {
     public partial class Player : MonoBehaviour
     {
+        [SerializeField]
+        private WeaponDB[] inventory = new WeaponDB[3];
+
+        [SerializeField]
+        private int inventoryIndex = 0;
+        public WeaponDB currentWeapon { get { return inventory[inventoryIndex]; } }
         private void Zoom()
         {
             if (Input.GetMouseButtonDown(1))
