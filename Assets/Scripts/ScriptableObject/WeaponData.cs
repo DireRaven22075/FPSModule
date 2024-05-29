@@ -1,4 +1,4 @@
-namespace EMSYS.FPS.ScriptableObject
+namespace EMSYS.FPS
 {
     using UnityEngine;
     
@@ -10,6 +10,7 @@ namespace EMSYS.FPS.ScriptableObject
         public float range;
         public float perTime;
         public GameObject prefab;
+        public AudioClip fireSound;
 
         [SerializeField]
         private int reloadAmmo;

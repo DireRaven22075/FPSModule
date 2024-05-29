@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2dec5e010e154102b1b11ddbee94261, type: 3}
   m_Name: M4A1
   m_EditorClassIdentifier: 
-  name: "\uC308\uBF55\uD55C AK-47"
-  damage: 50
+  name: "\uBBFC\uC8FC\uC8FC\uC758 \uBC30\uB2EC"
+  damage: 34
   range: 0
-  perTime: 0.4
+  perTime: 0.25
   prefab: {fileID: 0}
+  fireSound: {fileID: 0}
+  reloadAmmo: 0
+  loadedAmmo: 0
+  ammo: 0
+  maxAmmo: 0

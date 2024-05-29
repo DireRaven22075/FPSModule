@@ -13,12 +13,16 @@ namespace EMSYS.FPS.Entity
             rigid = GetComponent<Rigidbody>();
             controller = GetComponent<CharacterController>();
             Cursor.lockState = CursorLockMode.Locked;
-            
+            audio = GetComponent<AudioSource>();
+            isGround = true;
+
+            CancelInvoke("Weapon");
         }
         [SerializeField]
         private GameObject grenade;
         void Update()
         {
+            Zoom();
             Attack();
             Rotate();
             if (isGround && Input.GetKeyDown(KeyCode.Space))

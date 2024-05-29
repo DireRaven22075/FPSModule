@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using EMSYS.FPS.ScriptableObject;
+using EMSYS.FPS;
 using UnityEngine;
 
 namespace EMSYS.FPS.Entity

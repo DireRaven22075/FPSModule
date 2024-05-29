@@ -4,8 +4,7 @@ using EMSYS.FPS.Entity.Projectile;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using EMSYS.FPS.Interface;
-using EMSYS.FPS.ScriptableObject;
-
+using EMSYS.FPS;
 namespace EMSYS.FPS.Entity
 {
     public partial class Player : MonoBehaviour
@@ -18,12 +17,20 @@ namespace EMSYS.FPS.Entity
             }
             else if (Input.GetMouseButtonUp(1))
             {
-                camera.fieldOfView = 60;
+                StartCoroutine(ZoomOut());
             }
         }
         private IEnumerator ZoomIn()
         {
             for (int i = 60; i > 30; i--)
+            {
+                camera.fieldOfView = i;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        private IEnumerator ZoomOut()
+        {
+            for (int i = 30; i < 60; i++)
             {
                 camera.fieldOfView = i;
                 yield return new WaitForSeconds(0.01f);
@@ -70,7 +77,7 @@ namespace EMSYS.FPS.Entity
             if (weapons[0].loadedAmmo > 0)
             {
                 weapons[0].loadedAmmo--;
-
+                audio.PlayOneShot(weapons[0].fireSound);
                 if (Physics.Raycast(camera.transform.position, camera.transform.forward, out RaycastHit hit))
                 {
                     if (hit.transform.GetComponent<IEntity>() != null)

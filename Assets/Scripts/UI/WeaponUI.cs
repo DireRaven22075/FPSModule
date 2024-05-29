@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using EMSYS.FPS.Entity;
-using EMSYS.FPS.ScriptableObject;
+using EMSYS.FPS;
 using UnityEngine;
 using UnityEngine.UI;
 public class WeaponUI : MonoBehaviour
