@@ -693,6 +693,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenade: {fileID: 9096650461405010911, guid: bd1f0727b78fa48afaf5827a6ce58a15, type: 3}
+  weapons:
+  - {fileID: 11400000, guid: 9aecfbbc564fb4aeb85938b419983e62, type: 2}
+  - {fileID: 11400000, guid: 9aecfbbc564fb4aeb85938b419983e62, type: 2}
+  - {fileID: 11400000, guid: 9aecfbbc564fb4aeb85938b419983e62, type: 2}
 --- !u!1 &341717570
 GameObject:
   m_ObjectHideFlags: 0

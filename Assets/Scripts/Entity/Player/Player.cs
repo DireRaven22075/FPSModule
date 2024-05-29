@@ -13,11 +13,13 @@ namespace EMSYS.FPS.Entity
             rigid = GetComponent<Rigidbody>();
             controller = GetComponent<CharacterController>();
             isGround = true;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         [SerializeField]
         private GameObject grenade;
         void Update()
         {
+            Attack();
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Instantiate<GameObject>(grenade, camera.transform.position, camera.transform.rotation);
