@@ -11,5 +11,32 @@ namespace EMSYS.FPS.ScriptableObject
         public float perTime;
         public GameObject prefab;
 
+        [SerializeField]
+        private int reloadAmmo;
+        public int loadedAmmo;
+        public int ammo;
+        public int maxAmmo;
+
+        public void SupplyAmmo(float percent = 1f)
+        {
+            ammo = (int)(maxAmmo * percent);
+        }
+        public void ReloadAmmo()
+        {
+            if (ammo > 0)
+            {
+                int needAmmo = reloadAmmo - loadedAmmo;
+                if (ammo >= needAmmo)
+                {
+                    loadedAmmo += needAmmo;
+                    ammo -= needAmmo;
+                }
+                else
+                {
+                    loadedAmmo += ammo;
+                    ammo = 0;
+                }
+            }
+        }
     }
 }

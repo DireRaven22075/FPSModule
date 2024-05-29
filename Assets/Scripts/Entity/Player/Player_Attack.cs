@@ -10,8 +10,39 @@ namespace EMSYS.FPS.Entity
 {
     public partial class Player : MonoBehaviour
     {
+        private void Zoom()
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                StartCoroutine(ZoomIn());
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                camera.fieldOfView = 60;
+            }
+        }
+        private IEnumerator ZoomIn()
+        {
+            for (int i = 60; i > 30; i--)
+            {
+                camera.fieldOfView = i;
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
         private void Attack()
         {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                weaponIndex = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                weaponIndex = 2;
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                weaponIndex = 3;
+            }
             if (Input.GetMouseButtonDown(0))
             {
                 switch (weaponIndex)
@@ -36,12 +67,22 @@ namespace EMSYS.FPS.Entity
         }
         private void Weapon()
         {
-            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out RaycastHit hit))
+            if (weapons[0].loadedAmmo > 0)
             {
-                if (hit.transform.GetComponent<IEntity>() != null)
+                weapons[0].loadedAmmo--;
+
+                if (Physics.Raycast(camera.transform.position, camera.transform.forward, out RaycastHit hit))
                 {
-                    hit.transform.GetComponent<IEntity>().Damage(weapons[0].damage);
+                    if (hit.transform.GetComponent<IEntity>() != null)
+                    {
+                        hit.transform.GetComponent<IEntity>().Damage(weapons[0].damage);
+                    }
                 }
+            }
+            else
+            {
+                weapons[0].ReloadAmmo();
+                CancelInvoke("Weapon");
             }
         }
         private void WeaponATKUp()
