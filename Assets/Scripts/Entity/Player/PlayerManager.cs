@@ -2,6 +2,7 @@ using UnityEngine;
 using EMSYS.FPS.Interface;
 public class PlayerManager : MonoBehaviour, IEntity
 {
+
     /// <summary>
     /// 1. 투척물 (수류탄, 연막탄?)
     /// 2. 포탈 (발로란트)
