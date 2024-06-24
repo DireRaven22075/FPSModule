@@ -15,8 +15,6 @@ namespace EMSYS.FPS.Entity
             Cursor.lockState = CursorLockMode.Locked;
             
         }
-        [SerializeField]
-        private GameObject grenade;
         void Update()
         {
             Attack();
