@@ -10,6 +10,39 @@ namespace EMSYS.FPS.Entity
 {
     public partial class Player : MonoBehaviour
     {
+        private IWeapon[] weapons = new IWeapon[3];
+        private void Attack()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                weapons[0].MainStart();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                weapons[0].MainEnd();
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                weapons[0].SubStart();
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                weapons[0].SubEnd();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                weapons[0].ReloadStart();
+            }
+            else if (Input.GetKeyUp(KeyCode.R))
+            {
+                weapons[0].ReloadEnd();
+            }
+        }
+    
+        }
+    }
+}
+#if false
         private void Zoom()
         {
             if (Input.GetMouseButtonDown(1))
@@ -91,7 +124,6 @@ namespace EMSYS.FPS.Entity
         }
         private void ProjectileATK()
         {
-            Instantiate<GameObject>(grenade, camera.transform.position, camera.transform.rotation);
         }
         private void MeleeATK()
         {
@@ -113,3 +145,4 @@ namespace EMSYS.FPS.Entity
         }
     }
 }
+#endif

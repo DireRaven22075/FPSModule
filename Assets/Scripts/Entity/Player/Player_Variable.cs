@@ -18,8 +18,6 @@ namespace EMSYS.FPS.Entity
         private float yRotation = 0;
         #endregion
         #region attacks
-        [SerializeField]
-        public WeaponData[] weapons = new WeaponData[3];
         public int weaponIndex { get; private set; } = 1;
         #endregion
     }
