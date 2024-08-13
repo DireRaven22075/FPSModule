@@ -17,7 +17,6 @@ namespace EMSYS.FPS.Entity
         }
         void Update()
         {
-            Attack();
             Rotate();
             if (isGround && Input.GetKeyDown(KeyCode.Space))
             {

@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace EMSYS.FPS.Entity.Object
 {
-    [RequireComponent(typeof(MeshCollider))]
     public class WarpGate : MonoBehaviour
     {
         [SerializeField]

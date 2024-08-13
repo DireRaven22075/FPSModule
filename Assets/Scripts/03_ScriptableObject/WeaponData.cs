@@ -1,42 +1,23 @@
-namespace EMSYS.FPS.ScriptableObject
+using UnityEngine;
+
+namespace EMSYS.FPS
 {
-    using UnityEngine;
-    
-    [CreateAssetMenu(fileName = "WeaponData", menuName = "WeaponData", order = 0)]
-    public class WeaponData : ScriptableObject
+    public enum WeaponType
     {
-        public string name;
-        public int damage;
-        public float range;
-        public float perTime;
+        Pistol,
+        ShotGun,
+        Rifle,
+        Sniper,
+        
+    }
+    [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObject/Weapon", order = 0)]
+    public class WeaponDB : ScriptableObject
+    {
+        public string weaponName;
+        public int magazine;
+        public int[] damages;
+        public int[] ranges;
+        public int bpm;
         public GameObject prefab;
-
-        [SerializeField]
-        private int reloadAmmo;
-        public int loadedAmmo;
-        public int ammo;
-        public int maxAmmo;
-
-        public void SupplyAmmo(float percent = 1f)
-        {
-            ammo = (int)(maxAmmo * percent);
-        }
-        public void ReloadAmmo()
-        {
-            if (ammo > 0)
-            {
-                int needAmmo = reloadAmmo - loadedAmmo;
-                if (ammo >= needAmmo)
-                {
-                    loadedAmmo += needAmmo;
-                    ammo -= needAmmo;
-                }
-                else
-                {
-                    loadedAmmo += ammo;
-                    ammo = 0;
-                }
-            }
-        }
     }
 }

@@ -1,5 +1,7 @@
 {
     "files.exclude": {
+        "**/Resources": true,
+        "**/Scenes": true,
         "**/*.renderTexture": true,
         "**/Packages": true,
         "**/Library": true,

@@ -5,10 +5,16 @@ using UnityEngine.Pool;
 using EMSYS.FPS.Interface;
 namespace EMSYS.FPS.Entity.Projectile
 {
-    public class Grenade : MonoBehaviour
+    public class Grenade : MonoBehaviour, IEntity
     {
-        [SerializeField]
-        private ExplosionData data;
+        public void Damage(int value)
+        {
+            throw new System.NotImplementedException();
+        }
+        public void Die()
+        {
+            Destroy(this.gameObject);
+        }
         private Rigidbody rigid;
         private SphereCollider sphere;
         private AudioSource audio;

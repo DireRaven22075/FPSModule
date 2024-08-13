@@ -12,3 +12,18 @@ Counter-Strike, VALORANT, Sudden Attack을 레퍼런스 삼아 동아리 프로�
 - 플레이어 조준 및 사격
 - 각종 인터랙션
 - 게임 메니저
+
+
+## (TEMP) 개발 도중 기억할거
+
+### IEntity
+- Damage(int value)
+- Die()
+
+### ICharacter : IEntity
+- int Health
+- int Armor
+- void heal()
+- void ArmorUp()
+
+###

@@ -1,9 +1,11 @@
 using UnityEngine;
 namespace EMSYS.FPS.Interface
 {
-    public interface ICharacter
+    public interface ICharacter : IEntity
     {
-        void AnimationStart(string name);
-        void AnimationEnd(string name);
+        int Health { get; }
+        int Armor { get; }
+        void Heal(int value);
+        void ArmorUp(int value);
     }
 }
