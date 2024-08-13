@@ -5,25 +5,48 @@ using UnityEngine.AI;
 using EMSYS.FPS.Interface;
 public class Zombie : MonoBehaviour, IEntity
 {
+    public int Health { get; private set; } = 100;
+    public int Armor { get; private set; } = 0;
+
+    public void Damage(int value)
+    {
+        if (Armor > 0)
+        {
+            Armor -= value;
+            if (Armor < 0)
+            {
+                Health += Armor;
+                Armor = 0;
+            }
+        }
+        else
+        {
+            Health -= value;
+        }
+    }
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
+    public void Heal(int value)
+    {
+        Health = Mathf.Clamp(value + Health, 0, 100);
+    }
+    public void ArmorUp(int value)
+    {
+        Armor = Mathf.Clamp(value + Armor, 0, 50);
+    }
+
     float time = 0;
     public Transform target;
     public NavMeshAgent agent;
-    public int health { get; set; }
-    public void Damage(int value)
-    {
-        health -= value;
-        if (health <= 0) Die();
-    }
-    public void Die() => Destroy(this.gameObject);
-    //1. 플레이어랑 거리가 가까우면 자동으로 다가오는 기능 (완료)
-    //2. 플레이어랑 접촉하면 Damage() 함수를 통해 피해를 입히는 기능 (완료)
-    //3. 죽으면 자기자신을 파괴하는 기능 (완료)
-    // Start is called before the first frame update
     void OnEnable()
     {
-        if (agent == null)
-            agent = GetComponent<NavMeshAgent>();
-        health = 100;
+        if (!agent)
+        {
+            agent = this.GetComponent<NavMeshAgent>();
+        }
+        Health = 100;
         target = GameObject.Find("Player").transform;
         time = 0;
     }
